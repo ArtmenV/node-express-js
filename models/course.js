@@ -57,7 +57,8 @@ class Course {
   }
 
   static async getById(id) {
-    await Course.getAll()
+    const courses = await Course.getAll()
+    return courses.find(course => course.id === id)
   }
 }
 
