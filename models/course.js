@@ -55,6 +55,10 @@ class Course {
       )
     })
   }
+
+  static async getById(id) {
+    await Course.getAll()
+  }
 }
 
 module.exports = Course
