@@ -12,12 +12,27 @@ app.engine('hbs', hbs.engine)
 app.set('view engine', 'hbs')
 app.set('views', 'views')
 
+app.use(express.static('public'))
+
 app.get('/', (req, res) => {
-  res.render('index')
+  res.render('index', {
+    title: 'Главная страница',
+    isHome: true
+  })
 })
 
-app.get('/about', (req, res) => {
-  res.render('about')
+app.get('/courses', (req, res) => {
+  res.render('courses', {
+    title: 'Добавить курс',
+    isCourses: true
+  })
+})
+
+app.get('/add', (req, res) => {
+  res.render('add', {
+    title: 'Курсы',
+    isAdd: true
+  })
 })
 
 const PORT = process.env.PORT || 3000
